@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: guestbook-ui
+spec:
+  selector:
+    matchLabels:
+      app: guestbook-ui
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: guestbook-ui
+    spec:
+      containers:
+      - name: guestbook-ui
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
